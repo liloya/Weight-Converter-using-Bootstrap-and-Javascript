@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Weight converter usign bootstrap and javascript</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--<script src="script.js"></script>-->
+</head>
+<body>
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-6 offset-md-3">
+  			<h1 class="display-5 text-center mt-3 mb-4">Weight Converter</h1>
+            <div class="form-group">
+            	<input id="lbsInput" type="text" class="form-control form-control-lg" placeholder="Enter pounds....">
+            	<span id="spnError" style="color: Red; display: none">*please enter only digits</span>
+            </div>
+            <div id="output">
+            	<div class="card bg-primary mb-2">
+            		<div class="card-block">
+            			<h4>grams..</h4>
+            			<div id="gramsOutput"></div>
+            		</div>
+            	</div>
+            	<div class="card bg-success mb-2">
+            		<div class="card-block">
+            			<h4>Kilograms..</h4>
+            			<div id="kgOutput"></div>
+            		</div>
+            	</div>
+            	<div class="card bg-danger mb-2">
+            		<div class="card-block">
+            			<h4>Ouncess..</h4>
+            			<div id="ozOutput"></div>
+            		</div>
+            	</div>
+            	
+            </div>
+
+  		</div>
+  	</div>
+  </div>
+
+  <script>
+/*
+g=global,match all instance of the pattern in a string,not just one.
+i=case-insensative,xmple,a/i will the a or A
+*/
+
+  	document.getElementById('lbsInput').addEventListener(
+  		'input',function(e){
+  			document.getElementById('output').style.visibility='visible';
+  			var newValue = this.value.replace(new RegExp(/[^\.\d]/,'ig'), "");
+  			/*
+  			 take input and match with 'ig',then stored in newValue.those inputs are not patterned they are showed with spnErron,otherwise calculated
+  			*/
+             this.value = newValue;//show only digits and decimal in input tag
+             document.getElementById("spnError").style.display = 
+             !newValue ? "block" : "none";
+
+            document.getElementById('gramsOutput').innerHTML=newValue/0.0022046;
+            document.getElementById('gramsOutput').style.marginLeft="15px";
+            document.getElementById('kgOutput').innerHTML=newValue/2.2046;
+            document.getElementById('kgOutput').style.marginLeft="15px";
+            document.getElementById('ozOutput').innerHTML=newValue*16;
+            document.getElementById('ozOutput').style.marginLeft="15px";
+  		});
+  </script>
+</body>
+</html>

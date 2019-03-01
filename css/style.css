@@ -1,0 +1,16 @@
+body{
+	margin-top: 70px;
+	background: #EBEDEF;
+}
+.container{
+	background: #272822;
+	background: #333;
+	color: #fff;
+	width: 600px;
+	height: 450px;
+}
+
+h4{
+	margin-left: 15px;
+
+}
